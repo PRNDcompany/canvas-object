@@ -1,0 +1,29 @@
+{
+  "name": "canvas-object",
+  "version": "1.0.0",
+  "bugs": {
+    "url": "https://github.com/PRNDcompany/canvas-object/issues",
+    "email": "dean@prnd.co.kr"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PRNDcompany/canvas-object.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "dean",
+    "email": "dean@prnd.co.kr"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "deploy": "yarn build && yarn publish"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "fast-vector": "^1.0.4"
+  }
+}
