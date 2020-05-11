@@ -1,4 +1,4 @@
-# canvas-objects
+# canvas-object
 
 ## Instalation
 ```shell script
@@ -14,6 +14,6 @@ npm i -S canvas-object
 import FastVector from 'fast-vector';
 import { graphics } from 'canvas-object';
 
-const circle = new graphics.Circle({ position: new FastVector(0, 0,), radius: 10 });
+const circle = new graphics.Circle({ position: new FastVector(0, 0), radius: 10 });
 circle.render(context);
 ```
