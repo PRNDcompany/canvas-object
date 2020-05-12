@@ -4,6 +4,7 @@ dist
 yarn-error.log
 node_modules
 graphics
+components
 index.js
 index.d.ts
 !src/**/*

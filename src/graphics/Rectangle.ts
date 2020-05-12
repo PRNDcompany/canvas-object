@@ -15,12 +15,12 @@ export class Rectangle extends DisplayObject {
     this.height = height;
   }
 
-  render(context: CanvasRenderingContext2D) {
+  public render(context: CanvasRenderingContext2D) {
     context.save();
     context.beginPath();
     context.fillStyle = this.color;
     context.globalAlpha = this.alpha;
-    context.fillRect(this.position.x, this.position.y, this.width, this.height);
+    context.fillRect(this.position.x * this.scale, this.position.y * this.scale, this.width * this.scale, this.height * this.scale);
     context.fill();
     context.restore();
   }

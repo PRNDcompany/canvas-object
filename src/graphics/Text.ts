@@ -33,20 +33,20 @@ export class Text extends DisplayObject {
     context.beginPath();
     context.fillStyle = this.color;
     context.globalAlpha = this.alpha;
-    context.font = `${this.fontWeight} ${this.fontSize}px ${this.fontFamily}`;
+    context.font = `${this.fontWeight} ${this.fontSize * this.scale}px ${this.fontFamily}`;
     const { width } = context.measureText(this.content);
     context.stroke();
     context.restore();
     return width;
   }
 
-  render(context: CanvasRenderingContext2D) {
+  public render(context: CanvasRenderingContext2D) {
     context.save();
     context.beginPath();
     context.fillStyle = this.color;
     context.globalAlpha = this.alpha;
-    context.font = `${this.fontWeight} ${this.fontSize}px ${this.fontFamily}`;
-    context.fillText(this.content, this.position.x, this.position.y);
+    context.font = `${this.fontWeight} ${this.fontSize * this.scale}px ${this.fontFamily}`;
+    context.fillText(this.content, this.position.x * this.scale, this.position.y  * this.scale);
     context.stroke();
     context.restore();
   }
