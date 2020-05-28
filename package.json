@@ -1,6 +1,6 @@
 {
   "name": "canvas-object",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "bugs": {
     "url": "https://github.com/PRNDcompany/canvas-object/issues",
     "email": "dean@prnd.co.kr"
@@ -11,7 +11,7 @@
   },
   "license": "MIT",
   "author": {
-    "name": "dean",
+    "name": "dean-prnd",
     "email": "dean@prnd.co.kr"
   },
   "main": "index.js",

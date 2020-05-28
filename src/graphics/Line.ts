@@ -12,8 +12,8 @@ export class Line extends DisplayObject {
   public lineCap: CanvasLineCap;
   public lineWidth: number;
 
-  constructor({ position, endPosition, alpha, color, lineCap, lineWidth }: LineOptions) {
-    super({ position, alpha, color });
+  constructor({ position, endPosition, alpha, color, scale, lineCap, lineWidth }: LineOptions) {
+    super({ position, alpha, color, scale });
 
     this.endPosition = endPosition;
     this.lineCap = lineCap || 'butt';

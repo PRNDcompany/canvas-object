@@ -13,8 +13,8 @@ export class Circle extends DisplayObject {
   public startAngle: number;
   public endAngle: number;
 
-  constructor({ position, radius, alpha, color, startAngle, endAngle }: CircleOptions) {
-    super({ position, alpha, color });
+  constructor({ position, radius, alpha, color, startAngle, endAngle, scale }: CircleOptions) {
+    super({ position, alpha, color, scale });
     this.radius = radius;
     this.startAngle = startAngle || 0;
     this.endAngle = endAngle || PI2;

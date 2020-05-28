@@ -17,8 +17,8 @@ export class Text extends DisplayObject {
   public textBaseline: CanvasTextBaseline;
   public textAlign: CanvasTextAlign;
 
-  constructor({ position, alpha, color, content, fontFamily, fontWeight, fontSize, textAlign, textBaseline }: TextOptions) {
-    super({ position, alpha, color });
+  constructor({ position, alpha, color, content, fontFamily, fontWeight, fontSize, textAlign, textBaseline, scale }: TextOptions) {
+    super({ position, alpha, color, scale });
 
     this.content = content;
     this.fontFamily = fontFamily || 'serif';

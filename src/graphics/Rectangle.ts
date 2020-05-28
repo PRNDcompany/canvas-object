@@ -9,8 +9,8 @@ export class Rectangle extends DisplayObject {
   public width: number;
   public height: number;
 
-  constructor({ position, width, height, alpha, color }: RectangleOptions) {
-    super({ position, alpha, color });
+  constructor({ position, width, height, alpha, color, scale }: RectangleOptions) {
+    super({ position, alpha, color, scale });
     this.width = width;
     this.height = height;
   }
