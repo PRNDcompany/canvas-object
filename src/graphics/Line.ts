@@ -27,8 +27,8 @@ export class Line extends DisplayObject {
     context.globalAlpha = this.alpha;
     context.lineCap = this.lineCap;
     context.lineWidth = this.lineWidth * this.scale;
-    context.moveTo(this.position.x * this.scale, this.position.y * this.scale);
-    context.lineTo(this.endPosition.x * this.scale, this.endPosition.y  * this.scale);
+    context.moveTo(Math.round(this.position.x * this.scale) + 0.5, Math.round(this.position.y * this.scale) + 0.5);
+    context.lineTo(Math.round(this.endPosition.x * this.scale) + 0.5, Math.round(this.endPosition.y  * this.scale) + 0.5);
     context.stroke();
     context.restore();
   }
