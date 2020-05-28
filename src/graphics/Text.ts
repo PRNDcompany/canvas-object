@@ -33,6 +33,8 @@ export class Text extends DisplayObject {
     context.beginPath();
     context.fillStyle = this.color;
     context.globalAlpha = this.alpha;
+    context.textAlign = this.textAlign;
+    context.textBaseline = this.textBaseline;
     context.font = `${this.fontWeight} ${this.fontSize * this.scale}px ${this.fontFamily}`;
     const { width } = context.measureText(this.content);
     context.stroke();
@@ -45,6 +47,8 @@ export class Text extends DisplayObject {
     context.beginPath();
     context.fillStyle = this.color;
     context.globalAlpha = this.alpha;
+    context.textAlign = this.textAlign;
+    context.textBaseline = this.textBaseline;
     context.font = `${this.fontWeight} ${this.fontSize * this.scale}px ${this.fontFamily}`;
     context.fillText(this.content, this.position.x * this.scale, this.position.y  * this.scale);
     context.stroke();
