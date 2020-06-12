@@ -1,1 +1,3 @@
-export * as graphics from './graphics';
+import * as graphics from './graphics';
+
+console.log(graphics)
