@@ -4,12 +4,12 @@ import FastVector from 'fast-vector';
 export interface BezierCurveLineOptions extends DisplayObjectOptions {
   lineCap?: CanvasLineCap;
   lineWidth?: number;
-  curvePositions: [FastVector, FastVector, FastVector]
+  curvePositions: [FastVector, FastVector]
   endPosition: FastVector;
 }
 
 export class BezierCurveLine extends DisplayObject {
-  public curvePositions: [FastVector, FastVector, FastVector]
+  public curvePositions: [FastVector, FastVector]
   public endPosition: FastVector;
   public lineCap: CanvasLineCap;
   public lineWidth: number;
@@ -31,8 +31,7 @@ export class BezierCurveLine extends DisplayObject {
     context.lineCap = this.lineCap;
     context.lineWidth = this.lineWidth * this.scale;
     context.moveTo(Math.round(this.position.x * this.scale) + 0.5, Math.round(this.position.y * this.scale) + 0.5);
-    context.bezierCurveTo(this.curvePositions[0].x, this.curvePositions[0].y, this.curvePositions[1].x, this.curvePositions[1].y, this.curvePositions[2].x, this.curvePositions[2].y);
-    context.lineTo(Math.round(this.endPosition.x * this.scale) + 0.5, Math.round(this.endPosition.y  * this.scale) + 0.5);
+    context.bezierCurveTo(this.curvePositions[0].x, this.curvePositions[0].y, this.curvePositions[1].x, this.curvePositions[1].y, this.endPosition.x, this.endPosition.y);
     context.stroke();
     context.restore();
   }
