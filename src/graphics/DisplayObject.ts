@@ -14,6 +14,7 @@ export class DisplayObject {
   public scale: number;
 
   public render(context: CanvasRenderingContext2D): void {}
+  public update(delta: number): void {}
 
   constructor({ position, alpha, color, scale }: DisplayObjectOptions) {
     this.position = position;
