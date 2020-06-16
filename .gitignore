@@ -3,8 +3,8 @@
 dist
 yarn-error.log
 node_modules
+cores
 graphics
-components
 index.js
 index.d.ts
 !src/**/*

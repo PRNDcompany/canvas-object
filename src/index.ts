@@ -1,3 +1,4 @@
+import { AnimatedValue } from './cores/AnimatedValue';
 export { Line, LineOptions } from './graphics/Line';
 export { Text, TextOptions } from './graphics/Text';
 export { Circle, CircleOptions } from './graphics/Circle';

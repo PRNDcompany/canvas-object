@@ -21,6 +21,7 @@
   "exclude": [
     "index.js",
     "index.d.ts",
+    "cores",
     "graphics",
     "node_modules"
   ],
