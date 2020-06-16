@@ -17,16 +17,22 @@ export class AnimatedValue {
 
   public from: number;
   public to: number;
-  public value: number;
   public options: AnimatedValueOptions;
 
   private end: boolean = false;
+  private position: number;
+  private velocity: number;
 
   constructor(from: number, to: number, options: AnimatedValueOptions = { config: AnimatedValue.defaultAnimatedValueConfig }) {
     this.from = from;
     this.to = to;
-    this.value = from;
     this.options = options;
+    this.position = this.from;
+    this.velocity = 0;
+  }
+
+  get value() {
+    return this.position;
   }
 
   update(delta: number): void {
@@ -34,21 +40,16 @@ export class AnimatedValue {
       return;
     }
 
-    let position = this.from;
-    let velocity = 0;
-
     for (let i = 0; i < delta; i++) {
-      const force = -this.options.config.tension * (position - this.to);
-      const damping = -this.options.config.friction * velocity;
+      const force = -this.options.config.tension * (this.position - this.to);
+      const damping = -this.options.config.friction * this.velocity;
       const acceleration = (force + damping) / this.options.config.mass;
-      velocity = velocity + acceleration * 0.001;
-      position = position + velocity * 0.001;
+      this.velocity = this.velocity + acceleration * 0.001;
+      this.position = this.position + this.velocity * 0.001;
     }
 
-    this.value = position;
-
-    if (Math.abs(position - this.to) <= 0.0001) {
-      this.value = position;
+    if (Math.abs(this.position - this.to) <= 0.0001) {
+      this.position = this.to;
       this.end = true;
     }
   }
