@@ -1,7 +1,7 @@
-import { DisplayObject, DisplayObjectOptions } from './DisplayObject';
+import { DisplayObject, DisplayObjectBasicOptions } from './DisplayObject';
 import FastVector from 'fast-vector';
 
-export interface BezierCurveLineOptions extends Exclude<DisplayObjectOptions, 'position'> {
+export interface BezierCurveLineOptions extends DisplayObjectBasicOptions {
   positions: Array<FastVector>;
   lineCap?: CanvasLineCap;
   lineWidth?: number;
@@ -13,7 +13,7 @@ export class BezierCurveLine extends DisplayObject {
   public lineWidth: number;
 
   constructor({ positions, alpha, color, scale, lineCap, lineWidth }: BezierCurveLineOptions) {
-    super({ position: new FastVector(), alpha, color, scale });
+    super({ alpha, color, scale });
 
     this.positions = positions;
     this.lineCap = lineCap || 'butt';

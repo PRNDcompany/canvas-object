@@ -1,10 +1,13 @@
 import FastVector from 'fast-vector';
 
-export interface DisplayObjectOptions {
-  position: FastVector;
+export interface DisplayObjectBasicOptions {
   alpha?: number;
   color?: string;
   scale?: number;
+}
+
+export interface DisplayObjectOptions extends DisplayObjectBasicOptions {
+  position?: FastVector;
 }
 
 export class DisplayObject {
@@ -17,7 +20,7 @@ export class DisplayObject {
   public update(delta: number): void {}
 
   constructor({ position, alpha, color, scale }: DisplayObjectOptions) {
-    this.position = position;
+    this.position = position || new FastVector();
     this.alpha = alpha || 1;
     this.color = color || '#000000';
     this.scale = scale || 1;
