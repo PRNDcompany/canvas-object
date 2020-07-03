@@ -14,8 +14,8 @@ export class Line extends DisplayObject {
   public lineWidth: number;
   public segments?: number[];
 
-  constructor({ position, endPosition, segments, alpha, color, scale, lineCap, lineWidth }: LineOptions) {
-    super({ position, alpha, color, scale });
+  constructor({ position, endPosition, segments, alpha, color, scale, lineCap, lineWidth, rotation }: LineOptions) {
+    super({ position, alpha, color, scale, rotation });
 
     this.endPosition = endPosition;
     this.lineCap = lineCap || 'butt';
@@ -26,6 +26,9 @@ export class Line extends DisplayObject {
   public render(context: CanvasRenderingContext2D) {
     context.save();
     context.beginPath();
+    context.translate(this.position.x, this.position.y);
+    context.rotate(this.rotation);
+    context.translate(-this.position.x, -this.position.y);
     if (this.segments) {
       context.setLineDash(this.segments);
     }

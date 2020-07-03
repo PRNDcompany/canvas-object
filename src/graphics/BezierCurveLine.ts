@@ -12,8 +12,8 @@ export class BezierCurveLine extends DisplayObject {
   public lineCap: CanvasLineCap;
   public lineWidth: number;
 
-  constructor({ positions, alpha, color, scale, lineCap, lineWidth }: BezierCurveLineOptions) {
-    super({ alpha, color, scale });
+  constructor({ positions, alpha, color, scale, lineCap, lineWidth, rotation }: BezierCurveLineOptions) {
+    super({ alpha, color, scale, rotation });
 
     this.positions = positions;
     this.lineCap = lineCap || 'butt';
@@ -27,6 +27,9 @@ export class BezierCurveLine extends DisplayObject {
   public render(context: CanvasRenderingContext2D) {
     context.save();
     context.beginPath();
+    context.translate(this.position.x, this.position.y);
+    context.rotate(this.rotation);
+    context.translate(-this.position.x, -this.position.y);
     context.strokeStyle = this.color;
     context.globalAlpha = this.alpha;
     context.lineCap = this.lineCap;

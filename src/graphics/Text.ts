@@ -17,8 +17,8 @@ export class Text extends DisplayObject {
   public textBaseline: CanvasTextBaseline;
   public textAlign: CanvasTextAlign;
 
-  constructor({ position, alpha, color, content, fontFamily, fontWeight, fontSize, textAlign, textBaseline, scale }: TextOptions) {
-    super({ position, alpha, color, scale });
+  constructor({ position, alpha, color, content, fontFamily, fontWeight, fontSize, textAlign, textBaseline, scale, rotation }: TextOptions) {
+    super({ position, alpha, color, scale, rotation });
 
     this.content = content;
     this.fontFamily = fontFamily || 'serif';
@@ -31,6 +31,9 @@ export class Text extends DisplayObject {
   public getWidth(context: CanvasRenderingContext2D) {
     context.save();
     context.beginPath();
+    context.translate(this.position.x, this.position.y);
+    context.rotate(this.rotation);
+    context.translate(-this.position.x, -this.position.y);
     context.fillStyle = this.color;
     context.globalAlpha = this.alpha;
     context.textAlign = this.textAlign;
@@ -45,6 +48,9 @@ export class Text extends DisplayObject {
   public render(context: CanvasRenderingContext2D) {
     context.save();
     context.beginPath();
+    context.translate(this.position.x, this.position.y);
+    context.rotate(this.rotation);
+    context.translate(-this.position.x, -this.position.y);
     context.fillStyle = this.color;
     context.globalAlpha = this.alpha;
     context.textAlign = this.textAlign;
